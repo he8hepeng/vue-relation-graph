@@ -1,0 +1,151 @@
+.relation-graph {
+  position: relative;
+
+  &.ruler {
+    background-color: #555;
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background-color: #3780f3;
+    }
+
+    .relation-graph-root {
+      left: 30px;
+      top: 30px;
+    }
+  }
+
+  .left-ruler {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 30px;
+    width: 30px;
+  }
+  
+  .top-ruler {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 30px;
+    height: 30px;
+  }
+
+  .relation-graph-actions {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    text-align: center;
+    z-index: 1000000;
+    .relation-graph-actions-refresh {
+      margin-left: 12px;
+      cursor: pointer;
+      vertical-align: middle;
+      display: inline-block;
+      height: 14px;
+    }
+    .relation-graph-actions-zoom {
+      background-color: #eee;
+      border-radius: 20px;
+      padding: 4px 12px;
+      display: inline-block;
+      align-items: center;
+      vertical-align: middle;
+      > * {
+        display: inline-block;
+        vertical-align: middle;
+        height: 14px;
+
+        img {
+          vertical-align: top;
+          cursor: pointer;
+        }
+      }
+
+      * {
+        user-select: none;
+      }
+  
+      .relation-graph-actions-progress {
+        width: 200px;
+        height: 8px;
+        background-color: #3780f3;
+        margin: 0 16px;
+        border-radius: 4px;
+        left: 0;
+        position: relative;
+
+        .relation-graph-actions-circle {
+          background-color: #3780f3;
+          width: 8px;
+          height: 8px;
+          border-radius: 4px;
+          position: absolute;
+          cursor: pointer;
+          left: 96px;
+          top: 0;
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 7px;
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            background-color: #3780f3;
+            z-index: 3;
+          }
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 7px;
+            position: absolute;
+            left: -3px;
+            top: -3px;
+            background-color: #fff;
+          }
+        }
+      }
+    } 
+  }
+
+  .relation-graph-root {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+
+    .rel-map {
+      background-size: 15px 15px, 15px 15px, 75px 75px, 75px 75px;
+      background-color: transparent;
+    }
+
+    .node {
+      display: table;
+      padding: 16px;
+      box-sizing: border-box;
+      text-align: center;
+      &:hover {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+      }
+      >* {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 2px;
+        box-sizing: border-box;
+        line-height: 20px;
+      }
+    }
+  }
+}
